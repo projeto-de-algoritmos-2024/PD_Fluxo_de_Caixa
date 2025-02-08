@@ -13,7 +13,7 @@ def bellman_ford(edges, source, V):
         logging.debug(f"Initial edges: {edges}")
         logging.debug(f"Number of vertices: {V}")
         
-        for i in range(V):
+        for i in range(V - 1):
             for edge in edges:
                 try:
                     u = int(edge['source']) if isinstance(edge['source'], (str, int)) else int(edge['source']['id'])
@@ -22,7 +22,7 @@ def bellman_ford(edges, source, V):
                     logging.debug(f"Processing edge: {u} -> {v} with weight {w}")
                     
                     if dist[u] != float("inf") and dist[u] + w < dist[v]:
-                        dist[v] = dist[v] + w
+                        dist[v] = dist[u] + w
                 except Exception as e:
                     logging.error(f"Error processing edge {edge}: {str(e)}")
                     raise

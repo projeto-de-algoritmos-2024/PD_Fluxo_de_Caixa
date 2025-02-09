@@ -1,0 +1,263 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #2c3e50;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+header p {
+    margin: 10px 0 0;
+    color: #7f8c8d;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}
+
+.control-panel {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.control-panel h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.entity-controls, .transaction-controls, .analysis-controls {
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.visualization {
+    flex: 1;
+    min-height: 600px;
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+#graph {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#graph svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.results-panel {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.results-panel h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.results-panel ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.results-panel li {
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+.quick-start {
+    background-color: #f1f8ff;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
+
+.quick-start p {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.help-text {
+    color: #7f8c8d;
+    margin: 8px 0 0;
+    font-size: 0.85em;
+}
+
+.note {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffc107;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #5d4037;
+}
+
+/* Graph visualization styles */
+.node {
+    cursor: pointer;
+}
+
+.link {
+    stroke-width: 1.5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-width 0.3s ease;
+}
+
+.link:hover {
+    stroke-width: 2.5px;
+}
+
+.node circle {
+    fill: #fff;
+    stroke: #3498db;
+    stroke-width: 2px;
+}
+
+.node text {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.node-label {
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.edge-weight {
+    font-size: 10px;
+    pointer-events: none;
+}
+
+.negative-cycle {
+    stroke: #e74c3c;
+    stroke-width: 3px;
+}
+
+.analysis-options {
+    margin-top: 10px;
+}
+
+.analysis-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.analysis-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.analysis-controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#loadExample {
+    background-color: #3498db;
+    color: white;
+}
+
+#clearData {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#analyze {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.analysis-controls button:hover {
+    opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .control-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}

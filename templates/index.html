@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Fluxo de Caixa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analisador de Fluxo de Caixa</h1>
+            <p>Simule e analise fluxos de caixa com diferentes taxas de juros</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="quick-start">
+                    <h3>Início Rápido</h3>
+                    <p>Novo na ferramenta? Clique em "Carregar Exemplo" para ver um cenário financeiro pré-configurado com bancos, empresas e várias transações.</p>
+                </div>
+
+                <div class="entity-controls">
+                    <h3>Gerenciamento de Entidades</h3>
+                    <div class="input-group">
+                        <input type="text" id="entityName" placeholder="Nome da Entidade (ex: Banco A, Empresa B)">
+                        <button id="addNode">Adicionar Entidade</button>
+                    </div>
+                </div>
+
+                <div class="transaction-controls">
+                    <h3>Gerenciamento de Transações</h3>
+                    <div class="input-group">
+                        <select id="sourceEntity">
+                            <option value="">Entidade de Origem</option>
+                        </select>
+                        <select id="targetEntity">
+                            <option value="">Entidade de Destino</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="baseAmount" placeholder="Valor Base">
+                        <input type="number" id="interestRate" placeholder="Taxa de Juros (%)" step="0.1">
+                        <select id="transactionType">
+                            <option value="debt">Empréstimo (Negativo)</option>
+                            <option value="earning">Rendimento (Positivo)</option>
+                        </select>
+                    </div>
+                    <button id="addEdge">Adicionar Transação</button>
+                    <p class="help-text">
+                        <small>* Empréstimos são mostrados em vermelho, rendimentos em verde. A espessura da linha indica o valor da transação.</small>
+                    </p>
+                </div>
+
+                <div class="analysis-controls">
+                    <h3>Análise</h3>
+                    <button id="analyze">Analisar Fluxo de Caixa</button>
+                    <div class="analysis-options">
+                        <label>
+                            <input type="checkbox" id="showNegativeCycles">
+                            Destacar Oportunidades de Arbitragem
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <div id="graph"></div>
+                <div id="results" class="results-panel">
+                    <h3>Cenário de Exemplo</h3>
+                    <p>O cenário de exemplo inclui:</p>
+                    <ul>
+                        <li>Dois bancos oferecendo diferentes taxas de empréstimo</li>
+                        <li>Duas empresas com várias relações financeiras</li>
+                        <li>Um fundo de investimento gerenciando transações</li>
+                        <li>Vários tipos de transações (empréstimos, investimentos, pagamentos)</li>
+                        <li>Diferentes taxas de juros mostrando oportunidades de arbitragem</li>
+                    </ul>
+                    <p>Clique em "Carregar Exemplo" para visualizar essa rede, ou crie a sua própria usando os controles à esquerda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

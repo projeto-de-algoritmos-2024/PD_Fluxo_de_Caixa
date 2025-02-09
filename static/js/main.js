@@ -410,8 +410,8 @@ class CashFlowGraph {
 
         transactions.forEach(t => {
             const weight = t.type === 'debt' ? 
-                + (t.amount / (1 + t.rate/100)) : 
-                t.amount / (1 + t.rate/100);
+                -(t.amount * (1 + t.rate/100)) : 
+                t.amount * (1 + t.rate/100);
 
             this.edges.push({
                 source: t.source,

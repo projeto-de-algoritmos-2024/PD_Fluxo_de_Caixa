@@ -53,5 +53,9 @@ python app.py
 3. Execute a simulação para encontrar caminhos ótimos de fluxo de caixa
 4. Analise os resultados através da visualização interativa
 
+## Screenshots
+
+![image](static/print-analisador.png)
+
 ## Vídeo de Apresentação
 https://youtu.be/1f8dg3RIQGo
